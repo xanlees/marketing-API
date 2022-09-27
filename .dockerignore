@@ -1,0 +1,20 @@
+venv
+.vscode
+
+media
+static
+
+# credential
+credential.json
+
+# Environments
+.env
+.env_prod
+.global_env_prod.sh
+
+
+# ignore migration folder
+migrations/
+
+# ignore cache folder
+__pycache__/
