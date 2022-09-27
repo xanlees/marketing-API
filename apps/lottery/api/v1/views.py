@@ -1,16 +1,16 @@
 
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
-from product.models import Product
-from .serializers import ProductSerializer
+from lottery.models import Lottery
+from .serializers import LotterySerializer
 from rest_framework.parsers import MultiPartParser, FormParser
 
 class ListCreateAPIView(ListCreateAPIView):
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
+    queryset = Lottery.objects.all()
+    serializer_class = LotterySerializer
     parser_classes = (MultiPartParser, FormParser)
 
 
 class RetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
+    queryset = Lottery.objects.all()
+    serializer_class = LotterySerializer
     parser_classes = (MultiPartParser, FormParser)

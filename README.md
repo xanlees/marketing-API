@@ -1,9 +1,9 @@
-# Bamboo BI  Content Management System Headless API
+# Luad Game Lottery System Headless API
 
 This application enables Django powered websites to have multiple tenants via PostgreSQL schemas. A vital feature for every Software-as-a-Service website.
         
     # Creat a new database
-    CREATE DATABASE 'bbi_ecomm'
+    CREATE DATABASE 'luad_game'
 
 
 ### Basic Settings for Development
@@ -14,7 +14,7 @@ Activate environment
 
 Install dependencies
 
-    pip install -r requirements.txt
+    pip install -r requirements_dev.txt
 
 
 Basic Settings
@@ -28,12 +28,12 @@ and Django Secret Key
 
     SECRET_KEY='your_secret_key'
 
-Your DATABASE_ENGINE setting (bbi_ecomm/settings.py) needs to be changed to
+Your DATABASE_ENGINE setting (luad_game/settings.py) needs to be changed to
 
     DATABASES = {
     'default': {
             # Tenant Engine
-            'ENGINE': 'django_tenants.postgresql_backend',
+            'ENGINE': 'django.postgresql_backend',
             # set database name
             'NAME': 'your_db_name',
             # set your user details
@@ -48,12 +48,11 @@ Make migrations and Apply to database
 
     # create migrations files (every new django app)
     python manage.py makemigrations
-    python manage.py makemigrations tenant
-    python manage.py makemigrations bbi_exchange
-    python manage.py makemigrations product
+    python manage.py makemigrations lottery
     # Apply migrations
     python manage.py migrate
-    python manage.py migrate easy_thumbnails
+    # collect static files
+    python manage.py collectstatic 
 
 To set up Lao language, it is required gettext library:
 
@@ -65,32 +64,15 @@ For Mac:
 
     Brew install gettext
 
-then, make folder in project directory:
 
-
-    python manage.py makemessages -l la -i venv
-    python manage.py compilemessages -l la
-    python manage.py migrate
-
-Setup Initial User, Tenant and Admin
+Setup Initial User, and Admin
         
     # create first user
     python manage.py createsuperuser
-    # Create the Public Schema
-    python manage.py create_tenant
-        # example
-        schema name: public
-        user: 1
-        paid until:2022-12-31
-        on trial:False
-        is active: True
-        domain:localhost
-        
-    # Create the Administrator
-    python manage.py create_tenant_superuser
-        # example
-        Enter Tenant Schema ('?' to list schemas):  public
     python manage.py runserver
+
+Go to
+    localhost:8000/admin/ or localhost:8000/swagger/
 
 For Checking before deploy
     
@@ -107,7 +89,6 @@ For Checking before deploy
 
 ### Setting for Production to Google Cloud Run with Google SQL and Google Storage
 Create environment file .env_prod in root folder with follow settings:
-
 
     USE_CLOUD_SQL_AUTH_PROXY=True
     GOOGLE_CLOUD_PROJECT=Your Project
@@ -126,9 +107,9 @@ Export Global Variable
 
     source .global_env_prod.sh
 
-Change Project Settings pointer bbi_ecomm/wsgi.py and bbi_ecomm/asgi.py
+Change Project Settings pointer luad_game_core/wsgi.py and luad_game_core/asgi.py
 
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'bbi_ecomm.settings_prod')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'luad_game_core.settings_prod')
 
 
     ### Basic setting for deployment

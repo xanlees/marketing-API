@@ -1,16 +1,15 @@
 from django.conf import settings
 from django.utils.module_loading import import_string
 from parler_rest.serializers import TranslatableModelSerializer
-from product.models import Product
+from lottery.models import Lottery
 from sorl_thumbnail_serializer.fields import HyperlinkedSorlImageField
 
-ConvertSerializerMixin = import_string(settings.CURRENCY_MIXIN)
 TranslatedSerializerMixin = import_string(settings.TRANSLATE_MIXIN)
 DRFTranslatedFieldsField = import_string(settings.TRANSLATE_FIELD)
 
 
-class ProductSerializer(ConvertSerializerMixin, TranslatedSerializerMixin, TranslatableModelSerializer):
-    translations = DRFTranslatedFieldsField(shared_model=Product)
+class LotterySerializer(TranslatedSerializerMixin, TranslatableModelSerializer):
+    translations = DRFTranslatedFieldsField(shared_model=Lottery)
     thumbnail = HyperlinkedSorlImageField(
         '128x128',
         options={"crop": "center"},
@@ -20,5 +19,5 @@ class ProductSerializer(ConvertSerializerMixin, TranslatedSerializerMixin, Trans
     image = HyperlinkedSorlImageField('1024')
 
     class Meta:
-        model = Product
+        model = Lottery
         fields = '__all__'
