@@ -24,11 +24,11 @@ from rest_framework import permissions
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="Bamboo BI Ecommerce API",
+        title="Luad Game API",
         default_version='v1',
-        description="Headless E-commerce",
+        description="Luad Game API ",
         terms_of_service="https://www.google.com/policies/terms/",
-        contact=openapi.Contact(email="info@bamboobi.la"),
+        contact=openapi.Contact(email="info@luadgame.la"),
         license=openapi.License(name="BSD License"),
     ),
     public=True,
@@ -38,13 +38,10 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-
-    path('', include('tenant.api.v1.urls'), name='tenant'),
     path('swagger/', schema_view.with_ui('swagger',
          cache_timeout=0), name='schema-swagger-ui'),
     path('', include('user.api.v1.urls'), name='user'),
     path('', include("product.api.v1.urls"), name='product'),
-    path('', include("bbi_exchange.api.v1.urls"), name='bbi_exchange'),
     path('', include("rate.api.v1.urls"), name='rate'),
 
 ] 
