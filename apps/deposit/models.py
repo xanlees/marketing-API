@@ -3,7 +3,7 @@ from django.db import models
 
 
 class Deposit(models.Model):
-    deposit_amout = models.BigIntegerField()
+    deposit_amount = models.BigIntegerField()
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='deposit')
     updated_on = models.DateTimeField(auto_now=True)
@@ -15,6 +15,6 @@ class Deposit(models.Model):
         verbose_name_plural = ("Deposits")
 
     def __str__(self):
-        return self.name
+        return self.deposit_amount
 
 
