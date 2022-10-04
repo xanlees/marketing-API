@@ -45,8 +45,7 @@ INSTALLED_APPS = [
     'user',
     'lottery',
     'common',
-    'createagent',
-    'createcustomer',
+ 
 
     # The following Django contrib apps must be in TENANT_APPS
     'django.contrib.contenttypes',

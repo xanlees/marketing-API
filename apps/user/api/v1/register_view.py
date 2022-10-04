@@ -1,10 +1,10 @@
 from rest_framework import generics
 from rest_framework.response import Response
-from .serializers import RegisterUserSerializer, RegisterAgentSerializer, UserSerializer
+from .serializers import UserSerializer,AgentSerializer 
 
 
 class RegisterUserSerializerView(generics.GenericAPIView):
-    serializer_class = RegisterUserSerializer
+    serializer_class = AgentSerializer
 
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
@@ -15,7 +15,7 @@ class RegisterUserSerializerView(generics.GenericAPIView):
         })
 
 class RegisterAgentSerializerView(generics.GenericAPIView):
-    serializer_class = RegisterAgentSerializer
+    serializer_class = AgentSerializer
 
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
