@@ -14,7 +14,5 @@ class Deposit(models.Model):
         verbose_name = ("Deposit")
         verbose_name_plural = ("Deposits")
 
-    def __str__(self):
-        return self.deposit_amount
 
 
