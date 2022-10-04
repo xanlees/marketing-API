@@ -17,7 +17,7 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('username', 'is_active', 'is_staff')
+        fields = ('id', 'username', 'is_active', 'is_staff')
 
 class AgentSerializer(serializers.ModelSerializer):
     class Meta:
