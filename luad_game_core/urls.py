@@ -43,7 +43,6 @@ urlpatterns = [
     path('', include('user.api.v1.urls'), name='user'),
     path('', include("lottery.api.v1.urls"), name='lottery'),
 
-
 ] 
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
