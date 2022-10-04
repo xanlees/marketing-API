@@ -17,7 +17,7 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('username', 'is_active')
+        fields = ('username', 'is_active', 'is_staff')
 
 class AgentSerializer(serializers.ModelSerializer):
     class Meta:
@@ -31,4 +31,18 @@ class AgentSerializer(serializers.ModelSerializer):
         user = User.objects.create_user(validated_data['username'],
                                         password = validated_data['password'],
                                         is_active = validated_data['is_active'])
+        return user
+
+class RegisterStaffSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id','username','password', 'is_active', 'is_staff')
+        extra_kwargs = {
+            'password':{'write_only': True},
+        }
+    def create(self, validated_data):
+        user = User.objects.create_user(validated_data['username'],
+                                        password = validated_data['password'],
+                                        is_active = validated_data['is_active'],
+                                        is_staff = validated_data['is_staff'])
         return user

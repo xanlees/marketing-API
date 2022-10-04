@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'lottery',
     'common',
     'deposit',
+    'commission',
 
     # The following Django contrib apps must be in TENANT_APPS
     'django.contrib.contenttypes',

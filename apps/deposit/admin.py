@@ -3,10 +3,10 @@ from .models import Deposit
 
 
 class DepositAdmin(admin.ModelAdmin):
-    list_display = ('deposit_amout','user')
+    list_display = ('deposit_amount','user')
     fieldsets = (
         (None, {
-            'fields': ('deposit_amout', 'user'),
+            'fields': ('deposit_amount', 'user'),
         }),
     )
 

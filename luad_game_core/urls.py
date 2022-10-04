@@ -43,6 +43,7 @@ urlpatterns = [
     path('', include('user.api.v1.urls'), name='user'),
     path('', include("lottery.api.v1.urls"), name='lottery'),
     path('', include("deposit.api.v1.urls"), name='deposit'),
+    path('', include("commission.api.v1.urls"), name='commission'),
 
 ] 
 
