@@ -16,7 +16,7 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('username', 'is_active', 'is_staff')
+        fields = ('id', 'username', 'is_active', 'is_staff')
 
 class RegisterSerializer(serializers.ModelSerializer):
     class Meta:
