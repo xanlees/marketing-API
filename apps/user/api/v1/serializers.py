@@ -16,19 +16,17 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('username', 'email', 'first_name', 'last_name', 'is_staff', 'is_superuser')
+        fields = ('username', 'is_active')
 
 class RegisterSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id','username','email','password','first_name', 'last_name')
+        fields = ('id','username','password', 'is_active')
         extra_kwargs = {
             'password':{'write_only': True},
         }
     def create(self, validated_data):
         user = User.objects.create_user(validated_data['username'],
-                                        email = validated_data['email'],
-                                        password = validated_data['password']  ,
-                                        first_name=validated_data['first_name'],
-                                        last_name=validated_data['last_name'])
+                                        password = validated_data['password'],
+                                        is_active = validated_data['is_active'])
         return user
