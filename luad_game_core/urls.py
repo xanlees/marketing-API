@@ -42,6 +42,7 @@ urlpatterns = [
          cache_timeout=0), name='schema-swagger-ui'),
     path('', include('user.api.v1.urls'), name='user'),
     path('', include("lottery.api.v1.urls"), name='lottery'),
+    path('', include("deposit.api.v1.urls"), name='deposit'),
 
 
 ] 
