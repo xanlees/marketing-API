@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 from .serializers import UserSerializer
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.generics import ListAPIView
 from rest_framework import status
 
 
@@ -16,13 +17,20 @@ class MyObtainTokenPairView(TokenObtainPairView):
     serializer_class = MyTokenObtainPairSerializer
 
 
-class ListUserView(APIView):
+class ListUserView(ListAPIView):
+    serializer_class = UserSerializer
 
-    def get(self, request, *args, **kwargs):
+    def get_queryset(self):
+        """
+        Optionally restricts the returned purchases to a given user,
+        by filtering against a `username` query parameter in the URL.
+        """
         queryset = User.objects.all()
-        user_serializer = UserSerializer(queryset, many=True)
+        is_staff = self.request.query_params.get('is_staff')
+        if is_staff is not None:
+            queryset = queryset.filter(is_staff=is_staff)
+        return queryset
 
-        return Response(user_serializer.data, status=status.HTTP_200_OK)
 
 class RetrieveUserView(APIView):
 
