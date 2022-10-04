@@ -15,7 +15,7 @@ class Lottery(TranslatableModel):
     open_date = models.DateTimeField()
     closing_date = models.DateTimeField()
     user = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name='product')
+        User, on_delete=models.CASCADE, related_name='lottery')
     updated_on = models.DateTimeField(auto_now=True)
     created_on = models.DateTimeField(auto_now_add=True)
 
