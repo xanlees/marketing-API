@@ -6,10 +6,10 @@ from .models import Lottery
 
 
 class LotteryAdmin(TranslatableAdmin, AdminImageMixin):
-    list_display = ('name','open_date', 'closing_date', 'image')
+    list_display = ('name','open_date', 'closing_date', 'image', 'code')
     fieldsets = (
         (None, {
-            'fields': ('name', 'open_date', 'closing_date', 'image'),
+            'fields': ('name', 'open_date', 'closing_date', 'image', 'code'),
         }),
     )
 

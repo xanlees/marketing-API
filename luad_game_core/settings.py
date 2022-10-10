@@ -15,6 +15,7 @@ from pathlib import Path
 from django.utils.translation import gettext_lazy as _
 import environ
 
+
 env = environ.Env(
     # set casting, default value
     DEBUG=(bool, True)
@@ -223,3 +224,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 THUMBNAIL_FORCE_OVERWRITE = True
+
+DEPOSIT_MODEL = 'deposit.models.Deposit'
+COMMISSION_MODEL = 'commission.models.Commission'
