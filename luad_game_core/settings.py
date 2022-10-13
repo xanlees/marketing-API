@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'common',
     'deposit',
     'commission',
+    'lottery_time',
+    
 
     # The following Django contrib apps must be in TENANT_APPS
     'django.contrib.contenttypes',
@@ -222,3 +224,5 @@ THUMBNAIL_FORCE_OVERWRITE = True
 
 DEPOSIT_MODEL = 'deposit.models.Deposit'
 COMMISSION_MODEL = 'commission.models.Commission'
+
+# LOTTERY_MODEL = 'apps.lottery.models.Lottery'
