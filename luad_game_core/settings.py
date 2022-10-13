@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'lottery',
     'common',
     'deposit',
+    'commission',
 
     # The following Django contrib apps must be in TENANT_APPS
     'django.contrib.contenttypes',
@@ -218,3 +219,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 THUMBNAIL_FORCE_OVERWRITE = True
+
+DEPOSIT_MODEL = 'deposit.models.Deposit'
+COMMISSION_MODEL = 'commission.models.Commission'
