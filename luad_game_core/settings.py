@@ -40,7 +40,6 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-
 INSTALLED_APPS = [
     'user',
     'lottery',
@@ -48,7 +47,7 @@ INSTALLED_APPS = [
     'deposit',
     'commission',
     'lottery_time',
-    
+
 
     # The following Django contrib apps must be in TENANT_APPS
     'django.contrib.contenttypes',
@@ -67,7 +66,7 @@ INSTALLED_APPS = [
     'sorl_thumbnail_serializer',
 
     'django_cleanup.apps.CleanupConfig',
- 
+
 ]
 
 
@@ -89,8 +88,7 @@ ROOT_URLCONF = 'luad_game_core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -110,19 +108,18 @@ WSGI_APPLICATION = 'luad_game_core.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-        'default': {
-            # Tenant Engine
-            'ENGINE': 'django.db.backends.postgresql',
-            # set database name
-            'NAME': os.getenv('DB_NAME'),
-            # set your user details
-            'USER': os.getenv('DB_USR'),
-            'PASSWORD': os.getenv('DB_PWD'),
-            'HOST': 'localhost',
-            'POST': '5432'
+    'default': {
+        # Tenant Engine
+        'ENGINE': 'django.db.backends.postgresql',
+        # set database name
+        'NAME': os.getenv('DB_NAME'),
+        # set your user details
+        'USER': os.getenv('DB_USR'),
+        'PASSWORD': os.getenv('DB_PWD'),
+        'HOST': 'localhost',
+        'POST': '5432'
     }
 }
-
 
 
 # Password validation
@@ -173,6 +170,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
+    "http://localhost:6006",
 ]
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
@@ -197,20 +195,19 @@ LOCALE_PATHS = (
 )
 
 
-
 LANGUAGES = [
-   ('la', _('Lao')),
-   ('en', _('English')),
+    ('la', _('Lao')),
+    ('en', _('English')),
 
 ]
 
 PARLER_LANGUAGES = {
     None: (
-        {'code': 'en',},
-        {'code': 'la',},
+        {'code': 'en', },
+        {'code': 'la', },
     ),
     'default': {
-        'fallbacks': ['en'],      
+        'fallbacks': ['en'],
         'hide_untranslated': False,   # Default
     }
 }

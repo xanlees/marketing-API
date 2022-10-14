@@ -1,3 +1,5 @@
+from enum import unique
+from unittest.util import _MAX_LENGTH
 from django.contrib.auth.models import User
 from django.db import models
 from django.utils.translation import gettext as _
@@ -9,15 +11,15 @@ from sorl.thumbnail import delete
 
 class Lottery(TranslatableModel):
     translations = TranslatedFields(
-        name=models.CharField(_("name"), max_length=200, db_index=True),
+        name=models.CharField(_("name"), max_length=200,
+                              db_index=True, unique=True),
     )
     image = ImageField(verbose_name='Image', upload_to='uploads/', blank=True)
-    open_date = models.DateTimeField()
-    closing_date = models.DateTimeField()
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='lottery')
     updated_on = models.DateTimeField(auto_now=True)
     created_on = models.DateTimeField(auto_now_add=True)
+    code = models.CharField(max_length=200)
 
     class Meta:
         ordering = ['-created_on']
@@ -28,8 +30,8 @@ class Lottery(TranslatableModel):
         return self.name
 
 
-
 def sorl_delete(**kwargs):
     delete(kwargs['file'])
+
 
 cleanup_pre_delete.connect(sorl_delete)
