@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'deposit',
     'commission',
     'lottery_time',
+    'lottery_day',
 
 
     # The following Django contrib apps must be in TENANT_APPS

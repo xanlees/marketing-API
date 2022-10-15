@@ -1,11 +1,12 @@
+from enum import unique
 from lottery.models import Lottery
 from django.db import models
 
 
 class Lottery_day(models.Model):
-    days = models.CharField(max_length=255)
+    days = models.CharField(max_length=255, unique=True)
     lottery = models.ForeignKey(
-        Lottery, on_delete=models.CASCADE, related_name='lottery_time')
+        Lottery, on_delete=models.CASCADE, related_name='lottery_day')
 
 
 class Meta:
