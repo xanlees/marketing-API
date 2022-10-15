@@ -43,11 +43,11 @@ urlpatterns = [
     path('', include('user.api.v1.urls'), name='user'),
     path('', include("lottery.api.v1.urls"), name='lottery'),
     path('', include("lottery_time.api.v1.urls"), name='lottery_time'),
+    path('', include("lottery_day.api.v1.urls"), name='lottery_day'),
     path('', include("deposit.api.v1.urls"), name='deposit'),
 
 
-] 
+]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-
