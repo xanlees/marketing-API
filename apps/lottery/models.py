@@ -1,3 +1,4 @@
+
 from enum import unique
 from django.contrib.auth.models import User
 from django.db import models
@@ -12,7 +13,7 @@ class Lottery(TranslatableModel):
     translations = TranslatedFields(
         name=models.CharField(_("name"), max_length=200, db_index=True),
     )
-    code = models.CharField(max_length=15, blank=True, unique = True)
+    code = models.CharField(max_length=15, blank=True, unique=True)
     image = ImageField(verbose_name='Image', upload_to='uploads/', blank=True)
     open_date = models.DateTimeField()
     closing_date = models.DateTimeField()
