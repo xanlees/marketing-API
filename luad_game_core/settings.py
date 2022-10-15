@@ -15,6 +15,7 @@ from pathlib import Path
 from django.utils.translation import gettext_lazy as _
 import environ
 
+
 env = environ.Env(
     # set casting, default value
     DEBUG=(bool, True)
@@ -46,9 +47,12 @@ INSTALLED_APPS = [
     'common',
     'deposit',
     'commission',
-    'lottery_time',
+    'instalment',
+    'low_high',
+    'three_disgits_prize',
+    'two_disgits_prize',
     'lottery_day',
-
+    'lottery_time',
 
     # The following Django contrib apps must be in TENANT_APPS
     'django.contrib.contenttypes',
@@ -172,7 +176,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://localhost:6006",
+    "http://localhost:6007",
+    "http://localhost:8000",
 ]
+
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10,
@@ -222,5 +229,3 @@ THUMBNAIL_FORCE_OVERWRITE = True
 
 DEPOSIT_MODEL = 'deposit.models.Deposit'
 COMMISSION_MODEL = 'commission.models.Commission'
-
-# LOTTERY_MODEL = 'apps.lottery.models.Lottery'

@@ -1,5 +1,5 @@
-from enum import unique
-from unittest.util import _MAX_LENGTH
+
+
 from django.contrib.auth.models import User
 from django.db import models
 from django.utils.translation import gettext as _
@@ -14,6 +14,7 @@ class Lottery(TranslatableModel):
         name=models.CharField(_("name"), max_length=200,
                               db_index=True, unique=True),
     )
+    code = models.CharField(max_length=15, blank=True, unique=True)
     image = ImageField(verbose_name='Image', upload_to='uploads/', blank=True)
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='lottery')

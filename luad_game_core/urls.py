@@ -45,6 +45,12 @@ urlpatterns = [
     path('', include("lottery_time.api.v1.urls"), name='lottery_time'),
     path('', include("lottery_day.api.v1.urls"), name='lottery_day'),
     path('', include("deposit.api.v1.urls"), name='deposit'),
+    path('', include("commission.api.v1.urls"), name='commission'),
+    path('', include("two_disgits_prize.api.v1.urls"), name='two_lower'),
+    path('', include("three_disgits_prize.api.v1.urls"), name='three_lower'),
+    path('', include("instalment.api.v1.urls"), name='instalment'),
+    path('', include("low_high.api.v1.urls"), name='low_lower'),
+   
 
 
 ]
