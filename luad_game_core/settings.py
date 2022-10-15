@@ -48,10 +48,13 @@ INSTALLED_APPS = [
     'common',
     'deposit',
     'commission',
+<<<<<<< HEAD
     'two_disgits_prize',
     'three_disgits_prize',
     'instalment',
     'low_high',
+=======
+>>>>>>> test
 
     # The following Django contrib apps must be in TENANT_APPS
     'django.contrib.contenttypes',
@@ -230,5 +233,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 THUMBNAIL_FORCE_OVERWRITE = True
 
 DEPOSIT_MODEL = 'deposit.models.Deposit'
+<<<<<<< HEAD
 COMMISSION_MODEL = 'commission.models.Commission'
 INSTALMENT_MODEL = 'instalment.models.Instalment'
+=======
+COMMISSION_MODEL = 'commission.models.Commission'
+>>>>>>> test
