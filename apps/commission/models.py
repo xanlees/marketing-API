@@ -13,11 +13,4 @@ class Commission(models.Model):
     class Meta:
         ordering = ['-created_on']
         verbose_name = ("Commission")
-<<<<<<< HEAD
         verbose_name_plural = ("Commissions")
-
-
-
-=======
-        verbose_name_plural = ("Commissions")
->>>>>>> test
