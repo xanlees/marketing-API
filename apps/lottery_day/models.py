@@ -4,10 +4,9 @@ from django.db import models
 
 
 class Lottery_day(models.Model):
-    days = models.CharField(max_length=255, unique=True)
-    lottery = models.ForeignKey(
+    days = models.CharField(max_length=255)
+    lottery_id = models.ForeignKey(
         Lottery, on_delete=models.CASCADE, related_name='lottery_day')
-
 
 class Meta:
     verbose_name = ("day")
