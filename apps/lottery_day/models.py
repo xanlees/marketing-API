@@ -8,6 +8,7 @@ class Lottery_day(models.Model):
     lottery_id = models.ForeignKey(
         Lottery, on_delete=models.CASCADE, related_name='lottery_day')
 
+
 class Meta:
     verbose_name = ("day")
     verbose_name_plural = ("days")

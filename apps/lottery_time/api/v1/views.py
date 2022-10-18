@@ -3,6 +3,7 @@ from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIV
 from lottery_time.models import Lottery_time
 from .serializers import Lottery_time_Serializer
 
+
 class ListCreateAPIView(ListCreateAPIView):
     queryset = Lottery_time.objects.all()
     serializer_class = Lottery_time_Serializer
@@ -13,7 +14,7 @@ class ListCreateAPIView(ListCreateAPIView):
             kwargs['many'] = True
         return super().get_serializer(*args, **kwargs)
 
-    
+
 class RetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
     queryset = Lottery_time.objects.all()
     serializer_class = Lottery_time_Serializer
