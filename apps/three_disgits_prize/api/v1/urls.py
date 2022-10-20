@@ -1,8 +1,6 @@
 from django.urls import path
-from .views import ThreelowerListCreateAPIView, ThreelowerRetrieveUpdateDestroyAPIView, ThreeupperListCreateAPIView, ThreeupperRetrieveUpdateDestroyAPIView
+from .views import Three_disgits_prizeListCreateAPIView, Three_disgits_prizeRetrieveUpdateDestroyAPIView
 urlpatterns = [
-    path('api/v1/three_lower', ThreelowerListCreateAPIView.as_view(),name='three_lower'),
-    path('api/v1/three_lower/<int:pk>', ThreelowerRetrieveUpdateDestroyAPIView.as_view(),name='three_lower'),
-    path('api/v1/three_upper', ThreeupperListCreateAPIView.as_view(),name='three_upper'),
-    path('api/v1/three_upper/<int:pk>', ThreeupperRetrieveUpdateDestroyAPIView.as_view(),name='three_upper'),
+    path('api/v1/three_disgits_prize', Three_disgits_prizeListCreateAPIView.as_view(),name='three_disgits_prize'),
+    path('api/v1/three_disgits_prize/<int:pk>', Three_disgits_prizeRetrieveUpdateDestroyAPIView.as_view(),name='three_disgits_prize'),
 ]

@@ -4,25 +4,21 @@ from instalment.models import Instalment
 from lottery.models import Lottery
 
 
-class Low_high(models.Model):
+class Khus_kick(models.Model):
     name = models.CharField(max_length=15)
+    sales = models.FloatField()
+    win = models.FloatField()
     lottery = models.ForeignKey(
-        Lottery, on_delete=models.CASCADE, related_name='low_high')
-    instalment = models.ForeignKey(Instalment
-        , on_delete=models.CASCADE, related_name='low_high')
+        Lottery, on_delete=models.CASCADE, related_name='khus_kick')
+    instalment = models.ForeignKey(Instalment, on_delete=models.CASCADE, related_name='khus_kick')
     updated_on = models.DateTimeField(auto_now=True)
     created_on = models.DateTimeField(auto_now_add=True)
 
     class Meta:
 
-        verbose_name = ("Low_high")
-        verbose_name_plural = ("Low_high")
+        verbose_name = ("Khus_kick")
+        verbose_name_plural = ("Khus_kick")
 
     def __str__(self):
         return self.name
-    
-
-
-
-
 

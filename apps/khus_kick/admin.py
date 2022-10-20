@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Low_high
+from .models import Khus_kick
 
 
-class Low_lowerAdmin(admin.ModelAdmin):
+class Khus_kickAdmin(admin.ModelAdmin):
     list_display = ('name', 'lottery', 'instalment')
     fieldsets = (
         (None, {
@@ -10,6 +10,8 @@ class Low_lowerAdmin(admin.ModelAdmin):
         }),
     )
 
-admin.site.register(Low_high, Low_lowerAdmin)
+
+admin.site.register(Khus_kick, Khus_kickAdmin)
+
 
 

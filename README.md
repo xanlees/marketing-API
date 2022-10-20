@@ -49,7 +49,7 @@ Make migrations and Apply to database
     # create migrations files (every new django app)
     python manage.py makemigrations
     python manage.py makemigrations lottery
-    # Apply migrations
+    # python manage.py makemigrations lotteryApply migrations
     python manage.py migrate
     # collect static files
     python manage.py collectstatic 

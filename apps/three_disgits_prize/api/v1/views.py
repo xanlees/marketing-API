@@ -1,23 +1,16 @@
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
-from three_disgits_prize.models import Threelower, Threeupper
-from .serializers import ThreelowerSerializer, ThreeupperSerializer
+from three_disgits_prize.models import Three_disgits_prize
+from .serializers import Three_disgits_prizeSerializer
 
 
-class ThreelowerListCreateAPIView(ListCreateAPIView):
-    queryset = Threelower.objects.all()
-    serializer_class = ThreelowerSerializer
+class Three_disgits_prizeListCreateAPIView(ListCreateAPIView):
+    queryset = Three_disgits_prize.objects.all()
+    serializer_class = Three_disgits_prizeSerializer
 
 
-class ThreelowerRetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
-    queryset = Threelower.objects.all()
-    serializer_class = ThreelowerSerializer
+class Three_disgits_prizeRetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
+    queryset = Three_disgits_prize.objects.all()
+    serializer_class = Three_disgits_prizeSerializer
 
 
-class ThreeupperListCreateAPIView(ListCreateAPIView):
-    queryset = Threeupper.objects.all()
-    serializer_class = ThreeupperSerializer
 
-
-class ThreeupperRetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
-    queryset = Threeupper.objects.all()
-    serializer_class = ThreeupperSerializer
