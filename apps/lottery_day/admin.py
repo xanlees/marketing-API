@@ -3,10 +3,10 @@ from .models import Lottery_day
 
 
 class Lottery_day_Admin(admin.ModelAdmin):
-    list_display = ('days', 'lottery')
+    list_display = ('days', 'lottery_id')
     fieldsets = (
         (None, {
-            'fields': ('days', 'lottery'),
+            'fields': ('days', 'lottery_id'),
         }),
     )
 
