@@ -7,7 +7,8 @@ from django.utils.module_loading import import_string
 
 Deposit = import_string('deposit.models.Deposit')
 Commission = import_string('commission.models.Commission')
-
+# Instalment = import_string('instalment.models.Instalment')
+# Balance = import_string('balance.models.Balance')
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
 
@@ -29,12 +30,24 @@ class CommissionssSerializer(serializers.ModelSerializer):
         model = Commission
         fields = ['commission', 'updated_on']
 
+# class InstalmentSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Instalment
+#         fields = ['date', 'created_on']
+        
+# class BalanceSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Balance
+#         fields = ['balance', 'created_on']
+
 class UserSerializer(serializers.ModelSerializer):
     deposit = DepositAmountSerializer(many=True, read_only=True)
     commission = CommissionssSerializer(many=True, read_only=True)
+    # instalment = InstalmentSerializer(many=True, read_only=True)
+    # balance = BalanceSerializer(many=True, read_only=True)
     class Meta:
         model = User
-        fields = ('id', 'username', 'is_active', 'is_staff','date_joined', 'deposit', 'commission')
+        fields = ('id', 'username', 'is_active', 'is_staff','date_joined', 'commission','deposit', )
 
 class RegisterSerializer(serializers.ModelSerializer):
     class Meta:
@@ -61,5 +74,6 @@ class RegisterStaffSerializer(serializers.ModelSerializer):
         user = User.objects.create_user(validated_data['username'],
                                         password = validated_data['password'],
                                         is_active = validated_data['is_active'],
-                                        is_staff = validated_data['is_staff'])
+                                        is_staff = validated_data['is_staff'],
+                                        )
         return user

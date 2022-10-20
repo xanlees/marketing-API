@@ -1,24 +1,13 @@
 from django.contrib import admin
-from .models import Threelower, Threeupper
+from .models import Three_disgits_prize
 
 
-class ThreelowerAdmin(admin.ModelAdmin):
-    list_display = ('number','sales', 'win', 'lottery',)
+class Three_disgits_prizeAdmin(admin.ModelAdmin):
+    list_display = ('number', 'lottery')
     fieldsets = (
         (None, {
-            'fields': ('number', 'sales', 'win', 'lottery',),
+            'fields': ('number', 'lottery'),
         }),
     )
 
-admin.site.register(Threelower, ThreelowerAdmin)
-
-
-class ThreeupperAdmin(admin.ModelAdmin):
-    list_display = ('number','sales', 'win', 'lottery',)
-    fieldsets = (
-        (None, {
-            'fields': ('number', 'sales', 'win', 'lottery',),
-        }),
-    )
-
-admin.site.register(Threeupper, ThreelowerAdmin)
+admin.site.register(Three_disgits_prize, Three_disgits_prizeAdmin)

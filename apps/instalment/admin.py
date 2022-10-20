@@ -3,10 +3,10 @@ from .models import Instalment
 
 
 class InstalementAdmin(admin.ModelAdmin):
-    list_display = ('date', 'lottery')
+    list_display = ('created_on', 'lottery')
     fieldsets = (
         (None, {
-            'fields': ('date', 'lottery'),
+            'fields': ('created_on', 'lottery'),
         }),
     )
 

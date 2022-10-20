@@ -1,24 +1,14 @@
 from django.contrib import admin
-from .models import Two_lower, Two_upper
+from .models import Two_disgits_prize
 
 
-class Two_lowerAdmin(admin.ModelAdmin):
-    list_display = ('number','sales', 'win', 'lottery',)
+class Two_disgits_prizeAdmin(admin.ModelAdmin):
+    list_display = ('number', 'lottery')
     fieldsets = (
         (None, {
-            'fields': ('number', 'sales', 'win', 'lottery',),
+            'fields': ('number', 'lottery'),
         }),
     )
 
-admin.site.register(Two_lower, Two_lowerAdmin)
 
-
-class Two_upperAdmin(admin.ModelAdmin):
-    list_display = ('number','sales', 'win', 'lottery',)
-    fieldsets = (
-        (None, {
-            'fields': ('number', 'sales', 'win', 'lottery',),
-        }),
-    )
-
-admin.site.register(Two_upper, Two_upperAdmin)
+admin.site.register(Two_disgits_prize, Two_disgits_prizeAdmin)

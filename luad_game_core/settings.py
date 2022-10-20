@@ -49,8 +49,10 @@ INSTALLED_APPS = [
     'commission',
     'instalment',
     'low_high',
+    'khus_kick',
     'three_disgits_prize',
     'two_disgits_prize',
+    'wing',
     'lottery_day',
     'lottery_time',
 
@@ -227,5 +229,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 THUMBNAIL_FORCE_OVERWRITE = True
 
+INSTALMENT_MODEL = 'instalment.models.Instalment'
 DEPOSIT_MODEL = 'deposit.models.Deposit'
 COMMISSION_MODEL = 'commission.models.Commission'
