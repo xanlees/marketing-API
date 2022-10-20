@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'commission',
     'lottery_time',
     'lottery_day',
+    'buy_lottery',
 
 
     # The following Django contrib apps must be in TENANT_APPS
@@ -219,7 +220,8 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 THUMBNAIL_FORCE_OVERWRITE = True
-
+LOTTERY_DAY_MODEL = 'lottery_day.models.Lottery_day'
+LOTTERY_TIME_MODEL = 'lottery_time.models.Lottery_time'
 DEPOSIT_MODEL = 'deposit.models.Deposit'
 COMMISSION_MODEL = 'commission.models.Commission'
 
