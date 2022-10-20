@@ -3,10 +3,10 @@ from .models import Two_disgits_prize
 
 
 class Two_disgits_prizeAdmin(admin.ModelAdmin):
-    list_display = ('number', 'lottery')
+    list_display = ('number', 'lottery',)
     fieldsets = (
         (None, {
-            'fields': ('number', 'lottery'),
+            'fields': ('number', 'lottery', ),
         }),
     )
 

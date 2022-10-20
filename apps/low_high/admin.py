@@ -3,10 +3,10 @@ from .models import Low_high
 
 
 class Low_lowerAdmin(admin.ModelAdmin):
-    list_display = ('name', 'lottery', 'instalment')
+    list_display = ('name', 'lottery', )
     fieldsets = (
         (None, {
-            'fields': ('name', 'lottery', 'instalment'),
+            'fields': ('name', 'lottery', ),
         }),
     )
 
