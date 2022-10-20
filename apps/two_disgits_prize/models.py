@@ -1,6 +1,6 @@
 
 from django.db import models
-from instalment.models import Instalment
+# from instalment.models import Instalment
 from lottery.models import Lottery
 
 
