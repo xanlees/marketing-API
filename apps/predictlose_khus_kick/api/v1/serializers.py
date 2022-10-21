@@ -1,10 +1,10 @@
 
 from rest_framework import serializers
-from khus_kick.models import Khus_kick
+from predictlose_khus_kick.models import Predictlose_khus_kick
 
 class Khus_kickSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = Khus_kick
+        model = Predictlose_khus_kick
         fields = '__all__'
 

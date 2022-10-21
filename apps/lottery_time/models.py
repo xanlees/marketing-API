@@ -4,7 +4,7 @@ from lottery_day.models import Lottery_day
 
 
 class Lottery_time(models.Model):
-    day_id = models.ForeignKey(
+    lottery_day = models.ForeignKey(
         Lottery_day, on_delete=models.CASCADE, related_name='lottery_time')
     open_date = models.DateTimeField()
     closing_date = models.DateTimeField()
