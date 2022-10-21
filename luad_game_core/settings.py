@@ -54,7 +54,8 @@ INSTALLED_APPS = [
     'two_disgits_prize',
     'wing',
     'lottery_day',
-    'lottery_time',
+    'buy_lottery',
+
 
     # The following Django contrib apps must be in TENANT_APPS
     'django.contrib.contenttypes',
@@ -228,7 +229,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 THUMBNAIL_FORCE_OVERWRITE = True
-
-INSTALMENT_MODEL = 'instalment.models.Instalment'
+LOTTERY_DAY_MODEL = 'lottery_day.models.Lottery_day'
+LOTTERY_TIME_MODEL = 'lottery_time.models.Lottery_time'
 DEPOSIT_MODEL = 'deposit.models.Deposit'
 COMMISSION_MODEL = 'commission.models.Commission'
