@@ -3,10 +3,10 @@ from .models import Predictlose_wing
 
 
 class Predictlose_wingAdmin(admin.ModelAdmin):
-    list_display = ('number','instalment')
+    list_display = ('name', 'number')
     fieldsets = (
         (None, {
-            'fields': ('number','instalment'),
+            'fields': ('name', 'number'),
         }),
     )
   

@@ -1,7 +1,7 @@
 
 from django.db import models
 from instalment.models import Instalment
-from lottery.models import Lottery
+
 
 
 class Predictlose_low_high(models.Model):

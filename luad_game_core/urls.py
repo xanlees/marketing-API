@@ -44,6 +44,7 @@ urlpatterns = [
     path('', include("lottery.api.v1.urls"), name='lottery'),
     path('', include("lottery_time.api.v1.urls"), name='lottery_time'),
     path('', include("lottery_day.api.v1.urls"), name='lottery_day'),
+    path('', include("buy_lottery.api.v1.urls"), name='buy_lottery'),
     path('', include("deposit.api.v1.urls"), name='deposit'),
     path('', include("commission.api.v1.urls"), name='commission'),
     path('', include("predictlose_two.api.v1.urls"), name='predictlose_two'),
