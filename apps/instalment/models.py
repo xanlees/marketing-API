@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 from django.db import models
 from lottery_time.models import Lottery_time
 
-from lottery.models import Lottery
 
 
 class Instalment(models.Model):
