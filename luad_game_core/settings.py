@@ -48,14 +48,11 @@ INSTALLED_APPS = [
     'deposit',
     'commission',
     'instalment',
-    'predictlose_low_high',
-    'predictlose_khus_kick',
-    'predictlose_three',
-    'predictlose_two',
-    'predictlose_wing',
+    'lottery_product',
     'lottery_day',
     'buy_lottery',
     'lottery_time',
+    'lottery_type',
 
 
     # The following Django contrib apps must be in TENANT_APPS

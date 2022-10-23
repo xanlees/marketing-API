@@ -47,12 +47,12 @@ urlpatterns = [
     path('', include("buy_lottery.api.v1.urls"), name='buy_lottery'),
     path('', include("deposit.api.v1.urls"), name='deposit'),
     path('', include("commission.api.v1.urls"), name='commission'),
-    path('', include("predictlose_two.api.v1.urls"), name='predictlose_two'),
-    path('', include("predictlose_three.api.v1.urls"), name='predictlose_three'),
+    path('', include("lottery_product.api.v1.urls"), name='lottery_product'),
+    path('', include("lottery_type.api.v1.urls"), name='lottery_type'),
     path('', include("instalment.api.v1.urls"), name='instalment'),
-    path('', include("predictlose_low_high.api.v1.urls"), name='predictlose_low_high'),
-    path('', include("predictlose_khus_kick.api.v1.urls"), name='khus_kick'),
-    path('', include("predictlose_wing.api.v1.urls"), name='predictlose_wing'),
+
+
+
 
 ]
 
