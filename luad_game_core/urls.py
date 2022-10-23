@@ -44,14 +44,15 @@ urlpatterns = [
     path('', include("lottery.api.v1.urls"), name='lottery'),
     path('', include("lottery_time.api.v1.urls"), name='lottery_time'),
     path('', include("lottery_day.api.v1.urls"), name='lottery_day'),
+    path('', include("buy_lottery.api.v1.urls"), name='buy_lottery'),
     path('', include("deposit.api.v1.urls"), name='deposit'),
     path('', include("commission.api.v1.urls"), name='commission'),
-    path('', include("two_disgits_prize.api.v1.urls"), name='two_disgits_prize'),
-    path('', include("three_disgits_prize.api.v1.urls"), name='three_disgits_prize'),
+    path('', include("lottery_product.api.v1.urls"), name='lottery_product'),
+    path('', include("lottery_type.api.v1.urls"), name='lottery_type'),
     path('', include("instalment.api.v1.urls"), name='instalment'),
-    path('', include("low_high.api.v1.urls"), name='low_high'),
-    path('', include("khus_kick.api.v1.urls"), name='khus_kick'),
-    path('', include("wing.api.v1.urls"), name='wing_upper'),
+
+
+
 
 ]
 
