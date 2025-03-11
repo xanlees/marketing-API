@@ -8,6 +8,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 import os
+
 import sys
 from datetime import timedelta
 from pathlib import Path
@@ -29,6 +30,9 @@ sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+DEBUG = True
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -36,8 +40,6 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
 ALLOWED_HOSTS = []
 
 
@@ -53,6 +55,8 @@ INSTALLED_APPS = [
     'buy_lottery',
     'lottery_time',
     'lottery_type',
+    'products',
+    'cart',
 
 
     # The following Django contrib apps must be in TENANT_APPS
@@ -186,7 +190,11 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10,
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
+    ),
+    "DEFAULT_PARSER_CLASSES": [
+        "rest_framework.parsers.JSONParser",
+        'rest_framework.renderers.JSONRenderer',# ✅ Allow JSON
+    ]
 }
 
 

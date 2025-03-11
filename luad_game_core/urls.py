@@ -24,9 +24,9 @@ from rest_framework import permissions
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="Luad Game API",
+        title="Marketing API",
         default_version='v1',
-        description="Luad Game API ",
+        description="Marketing API ",
         terms_of_service="https://www.google.com/policies/terms/",
         contact=openapi.Contact(email="info@luadgame.la"),
         license=openapi.License(name="BSD License"),
@@ -50,11 +50,11 @@ urlpatterns = [
     path('', include("lottery_product.api.v1.urls"), name='lottery_product'),
     path('', include("lottery_type.api.v1.urls"), name='lottery_type'),
     path('', include("instalment.api.v1.urls"), name='instalment'),
-
-
-
+    path('', include("products.api.v1.urls"), name='products'),
+    path('', include("cart.api.v1.urls"), name='cart'),
 
 ]
 
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    
