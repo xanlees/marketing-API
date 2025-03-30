@@ -4,6 +4,7 @@ from rest_framework import serializers
 from django.contrib.auth.models import User
 from django.conf import settings
 from django.utils.module_loading import import_string
+from django.contrib.auth import authenticate
 
 Deposit = import_string('deposit.models.Deposit')
 Commission = import_string('commission.models.Commission')
@@ -11,14 +12,24 @@ Commission = import_string('commission.models.Commission')
 # Balance = import_string('balance.models.Balance')
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
+      def validate(self, attrs):
+            # Get the username and password
+        username = attrs.get("username")  # We are now using the username instead of email
+        password = attrs.get("password")
 
-    @classmethod
-    def get_token(cls, user):
-        token = super(MyTokenObtainPairSerializer, cls).get_token(user)
+        # Authenticate the user with the username and password
+        user = authenticate(username=username, password=password)
 
-        # Add custom claims
-        token['username'] = user.username
+        # If authentication fails, raise a validation error
+        if user is None:
+            raise serializers.ValidationError("Invalid credentials")
+
+        # Generate the token with the additional username claim
+        token = super(MyTokenObtainPairSerializer, self).validate(attrs)
+        token['username'] = user.username  # Add the custom 'username' claim to the token
+        
         return token
+        
 
 class DepositAmountSerializer(serializers.ModelSerializer):
     class Meta:
@@ -77,3 +88,5 @@ class RegisterStaffSerializer(serializers.ModelSerializer):
                                         is_staff = validated_data['is_staff'],
                                         )
         return user
+    
+    
