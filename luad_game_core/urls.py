@@ -41,17 +41,9 @@ urlpatterns = [
     path('swagger/', schema_view.with_ui('swagger',
          cache_timeout=0), name='schema-swagger-ui'),
     path('', include('user.api.v1.urls'), name='user'),
-    path('', include("lottery.api.v1.urls"), name='lottery'),
-    path('', include("lottery_time.api.v1.urls"), name='lottery_time'),
-    path('', include("lottery_day.api.v1.urls"), name='lottery_day'),
-    path('', include("buy_lottery.api.v1.urls"), name='buy_lottery'),
     path('', include("deposit.api.v1.urls"), name='deposit'),
     path('', include("commission.api.v1.urls"), name='commission'),
-    path('', include("lottery_product.api.v1.urls"), name='lottery_product'),
-    path('', include("lottery_type.api.v1.urls"), name='lottery_type'),
-    path('', include("instalment.api.v1.urls"), name='instalment'),
     path('', include("products.api.v1.urls"), name='products'),
-    path('', include("cart.api.v1.urls"), name='cart'),
 
 ]
 

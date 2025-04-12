@@ -45,18 +45,10 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'user',
-    'lottery',
     'common',
     'deposit',
     'commission',
-    'instalment',
-    'lottery_product',
-    'lottery_day',
-    'buy_lottery',
-    'lottery_time',
-    'lottery_type',
     'products',
-    'cart',
 
 
     # The following Django contrib apps must be in TENANT_APPS
@@ -237,7 +229,5 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 THUMBNAIL_FORCE_OVERWRITE = True
-LOTTERY_DAY_MODEL = 'lottery_day.models.Lottery_day'
-LOTTERY_TIME_MODEL = 'lottery_time.models.Lottery_time'
 DEPOSIT_MODEL = 'deposit.models.Deposit'
 COMMISSION_MODEL = 'commission.models.Commission'
