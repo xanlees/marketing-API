@@ -24,6 +24,9 @@ env = environ.Env(
 )
 
 ALLOWED_HOSTS = ['*']
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
+ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '*').split()
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -37,8 +40,6 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 DEBUG = True
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -168,9 +169,9 @@ DATABASES = {
     }
 }
 
-DATABASES = {
-    'default': dj_database_url.config(conn_max_age=600)
-}
+# DATABASES = {
+#     'default': dj_database_url.config( default='postgres://postgres:B@mb00b1@2022@//cloudsql/bamboo-bi-356406:asia-southeast1:bbi-ecomm/bbi_ecomm_db',conn_max_age=600)
+# }
 
 
 # Password validation
@@ -212,6 +213,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
