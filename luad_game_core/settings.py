@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'deposit',
     'commission',
     'products',
+    'documents.apply_booking',
 
 
     # The following Django contrib apps must be in TENANT_APPS
@@ -88,6 +89,42 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'luad_game_core.urls'
 
 CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://localhost:6006",
+    "http://localhost:6007",
+    "http://localhost:8000",
+    "http://localhost:5173",
+    "http://localhost:3001",
+    "http://127.0.0.1:3000",
+]
+
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
+
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
+
+# Add these additional settings
+CORS_EXPOSE_HEADERS = ['Content-Type', 'X-CSRFToken']
+CORS_PREFLIGHT_MAX_AGE = 86400
 
 TEMPLATES = [
     {
@@ -171,13 +208,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://localhost:6006",
-    "http://localhost:6007",
-    "http://localhost:8000",
-]
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',

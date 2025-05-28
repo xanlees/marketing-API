@@ -44,6 +44,7 @@ urlpatterns = [
     path('', include("deposit.api.v1.urls"), name='deposit'),
     path('', include("commission.api.v1.urls"), name='commission'),
     path('', include("products.api.v1.urls"), name='products'),
+    path('', include("documents.apply_booking.api.v1.urls"), name='apply_booking'),
 
 ]
 
