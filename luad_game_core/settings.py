@@ -8,6 +8,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 import os
+import dj_database_url
 
 import sys
 from datetime import timedelta
@@ -22,6 +23,8 @@ env = environ.Env(
     DEBUG=(bool, True)
 )
 
+ALLOWED_HOSTS = ['*']
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -33,6 +36,9 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 DEBUG = True
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -40,7 +46,6 @@ DEBUG = True
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-ALLOWED_HOSTS = []
 
 
 INSTALLED_APPS = [
@@ -84,6 +89,7 @@ MIDDLEWARE = [
 
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'luad_game_core.urls'
@@ -160,6 +166,10 @@ DATABASES = {
         'HOST': 'localhost',
         'POST': '5432'
     }
+}
+
+DATABASES = {
+    'default': dj_database_url.config(conn_max_age=600)
 }
 
 
