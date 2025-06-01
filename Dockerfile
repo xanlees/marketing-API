@@ -23,19 +23,30 @@ RUN apk add --update --no-cache \
     postgresql-client
 
 COPY --from=builder /wheels /wheels
+
+# 👇 Copy the original requirements.txt into /wheels so it can be installed
+COPY requirements.txt /wheels/requirements.txt
+
 RUN pip install \
-        --no-cache-dir \
-        --disable-pip-version-check \
-        -r /wheels/requirements.txt \
-        -f /wheels \
+    --no-cache-dir \
+    --disable-pip-version-check \
+    -r /wheels/requirements.txt \
+    -f /wheels \
     && rm -rf /wheels
 
+# Set working directory for your Django app
 WORKDIR /app
 
-COPY . ./
+# Copy all source code
+COPY . .
+
+# Optional: run collectstatic if you're serving static files with WhiteNoise
 # RUN python manage.py collectstatic --no-input
 
+# Make sure DJANGO_SETTINGS_MODULE points to the correct settings module
 ENV DJANGO_SETTINGS_MODULE='bbi_ecomm.settings_prod'
+
 EXPOSE 8000
 
-CMD ["uvicorn", "--host", "0.0.0.0", "bbi_ecomm.asgi:application"]
+# 🧠 Change this if you're using Django with WSGI instead of ASGI
+CMD ["gunicorn", "bbi_ecomm.wsgi:application", "--bind", "0.0.0.0:8000"]

@@ -14,5 +14,6 @@ class Apply_BookingSerializer(FlexFieldsModelSerializer):
             "time",
             "document_type",
             "address",
+            "status",
         ]
 

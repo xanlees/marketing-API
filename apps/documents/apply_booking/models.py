@@ -15,6 +15,11 @@ class DocumentType(Enum):
         return [(choice.value, choice.name.replace("_", " ").title()) for choice in cls]
 
 class Apply_Booking(models.Model):
+    STATUS_CHOICES = [
+        ('planning', 'Planning'),
+        ('progress', 'In Progress'),
+        ('done', 'Done'),
+    ]
     username = models.CharField(max_length=255)
     phonenumber = models.CharField(max_length=255)
     email = models.EmailField(max_length=254, unique=True, blank=False, null=False)
@@ -24,6 +29,7 @@ class Apply_Booking(models.Model):
         max_length=255, choices=DocumentType.choices(), default=DocumentType.Passport.value
     )
     address = models.TextField(blank=True)
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='planning')
     updated_on = models.DateTimeField(auto_now=True)
     created_on = models.DateTimeField(auto_now_add=True)
 

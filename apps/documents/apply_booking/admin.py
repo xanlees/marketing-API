@@ -12,6 +12,7 @@ class Apply_BookingAdmin(admin.ModelAdmin):
         "time",
         "document_type",
         "address",
+        "status",
     ]
     fieldsets = [
         (
@@ -25,6 +26,7 @@ class Apply_BookingAdmin(admin.ModelAdmin):
                     "time",
                     "document_type",
                     "address",
+                    "status",
                 ]
             },
         )

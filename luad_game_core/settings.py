@@ -70,6 +70,7 @@ INSTALLED_APPS = [
     'drf_yasg',
     'corsheaders',
     'parler',
+    'django_filters',
 
     'sorl.thumbnail',
     'sorl_thumbnail_serializer',
@@ -227,6 +228,7 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
     "DEFAULT_PARSER_CLASSES": [
         "rest_framework.parsers.JSONParser",
         'rest_framework.renderers.JSONRenderer',# ✅ Allow JSON
